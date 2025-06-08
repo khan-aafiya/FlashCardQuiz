@@ -362,6 +362,14 @@ button:hover {
     color: white;
 }
 
+#topicList li.selected button:hover {
+    background-color: #4338ca;
+}
+
+#topicList li button:hover {
+    background-color: #c7dcf8;
+}
+
 /* hover effect on Delete Topic Btn thats show title of btn */
 #removeCurrTopicBtn {
     position: relative;
