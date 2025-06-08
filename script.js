@@ -205,7 +205,6 @@ function renderTopics() {
         topicsDropdown.appendChild(ddLi);
 
         // topicsDropdownMenu
-
         const crrTopicInAddQA = document.getElementById("crrTopicInAddQA");
         crrTopicInAddQA.textContent = currentTopic;
 
@@ -229,13 +228,6 @@ function renderTopics() {
 
                     delTopicFromTopics[delTopicFromTopics.length] = currentTopic;
                     saveDelTopicsToLocalStorage();
-
-                    //let isDeleted = delete topics[currentTopic];
-                    // saveTopicsToLocalStorage();
-
-                    // if (isDeleted) {
-                    //     console.log("Deleted");
-                    // }
 
                     removeCurrTopic.parentNode.remove();
 
@@ -269,13 +261,6 @@ function renderTopics() {
                     delTopicFromTopics[delTopicFromTopics.length] = currentTopic;
                     saveDelTopicsToLocalStorage();
 
-                    //let isDeleted = delete topics[currentTopic];
-                    // saveTopicsToLocalStorage();
-
-                    // if (isDeleted) {
-                    //     console.log("Deleted");
-                    // }
-
                     removeCurrTopic.parentNode.remove();
 
                     showNotification(`${ currentTopic } is deleted.`);
@@ -299,8 +284,6 @@ function renderTopics() {
     });
 
     totalEl.textContent = quizData.length;
-    // topicListEl.remove(removeCurrTopic.parentNode); // ❌
-    // topicsDropdown.remove(removeCurrTopic.parentNode); // ❌
 
 }
 
@@ -354,7 +337,6 @@ correctBtn.addEventListener("click", () => {
         score++;
         correctSet.add(currentIndex);
 
-        // Update UI
         scoreEl.textContent = score;
         correctCountEl.textContent = correctSet.size;
 
@@ -376,9 +358,6 @@ backBtn.addEventListener("click", () => {
 
 // Delete current card button
 deleteCardBtn.addEventListener("click", () => {
-
-    // Problem is delete any card but this function delete only 0th indexed card why...?
-
     if (quizData.length === 0) {
         alert("No cards available to delete.");
         return;
@@ -413,7 +392,6 @@ deleteCardBtn.addEventListener("click", () => {
             correctSet.delete(currentIndex + 1);
             localStorage.setItem('correctSet_' + currentTopic, JSON.stringify(Array.from(correctSet)));
 
-            // Update UI
             scoreEl.textContent = score;
             correctCountEl.textContent = correctSet.size;
             totalEl.textContent = quizData.length;
@@ -447,14 +425,13 @@ modeToggle.addEventListener('click', () => {
 addQAButton.addEventListener("click", () => {
     const question = newQuestionInput.value.trim();
     const answer = newAnswerInput.value.trim();
-    // question = question.toUpp
 
     if (!question || !answer) {
         alert("Please enter both question and answer.");
         return;
     }
 
-    // ✅ BONUS FIX: Check for duplicates
+    // Check for duplicates
     const alreadyExists = topics[currentTopic].some(
         qa => qa.question === question && qa.answer === answer
     );
@@ -473,7 +450,6 @@ addQAButton.addEventListener("click", () => {
     newAnswerInput.value = "";
     addQAModal.style.display = "none";
 
-    // Refresh UI
     quizData = topics[currentTopic];
     renderTopics();
     resetQuiz();
@@ -607,7 +583,6 @@ function showConfirmation(title, message, callback) {
     confirmModal.style.display = "block";
 
 
-    // Confirm button event handler
     const confirmAction = () => {
         callback();
         confirmModal.style.display = "none";
@@ -668,7 +643,6 @@ addTopicButton.addEventListener("click", () => {
         alert("Please enter a topic name.");
         return;
     }
-    // const topicName = prompt("Enter new topic name:");
     if (topicName && !topics[topicName]) {
         topics[topicName] = [];
         saveTopicsToLocalStorage();
