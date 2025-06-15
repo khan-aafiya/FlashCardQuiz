@@ -1,136 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Flashcard Quiz</title>
-        <link rel="stylesheet" href="style.css" />
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcard Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  </head>
 
-    <body>
-        <nav class="navbar">
-            <div class="nav-left">
-                <button id="topicsBtn" class="nav-btn">Topics ▼</button>
-                <div class="dropdown-menu">
-                    <ul id="topicsDropdown">
-                        <!-- Topics will be inserted here dynamically -->
-                    </ul>
-                </div>
-            </div>
-
-            <h2>
-                Flashcard Quiz
-            </h2>
-            <div class="nav-buttons">
-                <button id="tipsBtn">💡 Tips</button>
-                <button id="modeToggle"><i class="ri-moon-line"></i></button>
-            </div>
-        </nav>
-
-        <div class="left-sidebar">
-            <h2>
-                <span>Topics</span>
-                <button id="addTopics">
-                    +
-                    <div class="hoverTitleOfBtn">Add Topic</div>
-                </button>
-            </h2>
-            <ul id="topicList">
-                <!-- Topics will be dynamically inserted here -->
-            </ul>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <button id="topicsBtn" class="nav-btn">
+          Topics
+        </button>
+        <button id="ddTopicAddBtn">+</button>
+        <div class="dropdown-menu">
+          <ul id="topicsDropdown">
+            <!-- Topics will be inserted here dynamically -->
+          </ul>
         </div>
+      </div>
 
-        <div class="main">
-            <div class="content">
-                <div class="flashcard" id="flashcard">
-                    <button id="deleteCardBtn">
-                        <i class="ri-delete-bin-line"></i>
-                        <div class="hoverTitleOfBtn">Delete Card</div>
+      <h2>
+        Flashcard Quiz
+      </h2>
 
-                    </button>
-                    <div class="card-face front" id="question">
-                    </div>
-                    <div class="card-face back" id="answer"></div>
-                </div>
-                <div class="buttons">
-                    <button id="backBtn">Back</button>
-                    <button id="flipBtn">Flip</button>
-                    <button id="correctBtn">Correct</button>
-                    <button id="nextBtn">Next</button>
-                </div>
-            </div>
-
-            <div class="sidebar">
-                <h2>📊 Your Score</h2>
-                <p>Score: <span id="score">0</span></p>
-                <p>Correct Cards: <span id="correctCount">0</span> / <span id="total">0</span></p>
-                <div class="reset-options">
-                    <button id="resetAllBtn">🔄 Reset All Progress</button>
-                    <button id="resetTopicBtn">🗑 Reset Current Topic</button>
-                </div>
-            </div>
+      <div class="nav-right">
+        <button id="enableAPIBlockBtn">🌐</button>
+        <div class="nav-buttons">
+          <button id="tipsBtn">💡 Tips</button>
+          <button id="modeToggle"><i class="ri-moon-line"></i></button>
         </div>
+      </div>
 
-        <!-- Tips Modal -->
-        <div id="tipsModal" class="modal">
-            <div class="modal-content">
-                <span class="close1">&times;</span>
-                <h2>Tips for Using Flashcards</h2>
-                <ul>
-                    <li>Click <strong>Flip</strong> to see the answer.</li>
-                    <li>If you got it right, click <strong>Correct</strong>.</li>
-                    <li>Use <strong>Next</strong> and <strong>Back</strong> to navigate.</li>
-                    <li>Only one point is awarded per unique correct card.</li>
-                </ul>
-            </div>
+    </nav>
+
+    <div class="left-sidebar">
+      <h2>
+        <span>Topics</span>
+        <button id="addTopics">
+          +
+          <div class="hoverTitleOfBtn">Add Topic</div>
+        </button>
+      </h2>
+      <ul id="topicList">
+        <!-- Topics will be dynamically inserted here -->
+      </ul>
+    </div>
+
+    <div class="main">
+      <div class="content">
+        <div class="flashcard" id="flashcard">
+          <button id="deleteCardBtn">
+            <i class="ri-delete-bin-line"></i>
+            <div class="hoverTitleOfBtn">Delete Card</div>
+
+          </button>
+          <div class="card-face front" id="question">
+          </div>
+          <div class="card-face back" id="answer"></div>
         </div>
-
-        <!-- Add Questions and Answers Modal -->
-        <div id="addQAModal" class="modal">
-            <div class="modal-content">
-                <span class="close2">&times;</span>
-                <h2>Add Your Own Question in Topic: "<span id="crrTopicInAddQA"></span>"</h2>
-                <input type="text" id="newQuestion" placeholder="Enter question" />
-                <input type="text" id="newAnswer" placeholder="Enter answer" />
-                <button id="addQAButton">Add</button>
-            </div>
+        <div class="buttons">
+          <button id="backBtn">Back</button>
+          <button id="flipBtn">Flip</button>
+          <button id="correctBtn">Correct</button>
+          <button id="nextBtn">Next</button>
         </div>
+      </div>
 
-        <!--confirmation Modal  -->
-        <div id="confirmModal" class="modal">
-            <div class="modal-content">
-                <h2 id="confirmTitle">Confirm Reset</h2>
-                <p id="confirmMessage">Are you sure you want to reset all progress?</p>
-                <div class="modal-buttons">
-                    <button id="confirmActionBtn">Confirm</button>
-                    <button id="cancelActionBtn">Cancel</button>
-                </div>
-            </div>
+      <div class="sidebar">
+        <h2>📊 Your Score</h2>
+        <p>Score: <span id="score">0</span></p>
+        <p>Correct Cards: <span id="correctCount">0</span> / <span id="total">0</span></p>
+        <div class="reset-options">
+          <button id="resetAllBtn">🔄 Reset All Progress</button>
+          <button id="resetTopicBtn">🗑 Reset Current Topic</button>
         </div>
+      </div>
+    </div>
 
-        <!-- Add topic -->
-        <div id="addTopicModal" class="modal">
-            <div class="modal-content">
-                <span class="close3" id="closeAddTopicModal">&times;</span>
-                <h2>Add New Topic</h2>
-                <input type="text" id="newTopicName" placeholder="Enter topic name" />
-                <button id="addTopicButton">Add</button>
-            </div>
+    <!-- Tips Modal -->
+    <div id="tipsModal" class="modal">
+      <div class="modal-content">
+        <span class="close1">&times;</span>
+        <h2>Tips for Using Flashcards</h2>
+        <ul>
+          <li>Click <strong>Flip</strong> to see the answer.</li>
+          <li>If you got it right, click <strong>Correct</strong>.</li>
+          <li>Use <strong>Next</strong> and <strong>Back</strong> to navigate.</li>
+          <li>Only one point is awarded per unique correct card.</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Add Questions and Answers Modal -->
+    <div id="addQAModal" class="modal">
+      <div class="modal-content">
+        <span class="close2">&times;</span>
+        <h2>Add Your Own Question in Topic: "<span id="crrTopicInAddQA"></span>"</h2>
+        <input type="text" id="newQuestion" placeholder="Enter question" />
+        <input type="text" id="newAnswer" placeholder="Enter answer" />
+        <button id="addQAButton">Add</button>
+      </div>
+    </div>
+
+    <!--confirmation Modal  -->
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <h2 id="confirmTitle">Confirm Reset</h2>
+        <p id="confirmMessage">Are you sure you want to reset all progress?</p>
+        <div class="modal-buttons">
+          <button id="confirmActionBtn">Confirm</button>
+          <button id="cancelActionBtn">Cancel</button>
         </div>
+      </div>
+    </div>
 
-        <!-- Topic Choice Modal (main or sub)-->
-        <div id="topicChoiceModal" class="modal">
-            <div class="modal-content">
-                <span class="close4" id="closeTopicChoice">&times;</span>
-                <h3>What would you like to add New Topic?</h3>
-                <button id="addMainTopicBtn">Add</button>
-            </div>
-        </div>
+    <!-- Add topic -->
+    <div id="addTopicModal" class="modal">
+      <div class="modal-content">
+        <span class="close3" id="closeAddTopicModal">&times;</span>
+        <h2>Add New Topic</h2>
+        <input type="text" id="newTopicName" placeholder="Enter topic name" />
+        <button id="addTopicButton">Add</button>
+      </div>
+    </div>
+
+    <!-- Add Online Question Model -->
+    <div class="apiControlModal modal">
+      <div class="modal-content">
+        <span class="close5" id="closeApiControlseModel">&times;</span>
+        <h2>Add New Topic from Online?</h2>
+
+        <select id="apiCategorySelect">
+          <option value="">Any Category</option>
+          <!-- Categories will be populated dynamically -->
+        </select>
+        <select id="apiDifficultySelect">
+          <option value="">Any Difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button id="apiFetchBtn">Get</button>
+      </div>
+    </div>
 
 
-        <script src="script.js"></script>
-    </body>
+    <script src="script.js"></script>
+  </body>
 
 </html>
