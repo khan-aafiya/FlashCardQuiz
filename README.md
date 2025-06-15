@@ -1,28 +1,28 @@
-# 📚 Flashcard Quiz Web App
+# Flashcard Quiz Web App
 
 An interactive and responsive Flashcard Quiz application built using **HTML**, **CSS**, and **JavaScript**. It allows users to test and improve their knowledge across various topics, with options to add custom questions or fetch quizzes from an online API.
 
 ---
 
-> 🛠️ **I made this project with my friend [Aamrapali Mahajan](https://github.com/Aamrapalimahajan30)**
+>  **I made this project with my friend [Aamrapali Mahajan](https://github.com/Aamrapalimahajan30)**
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🔄 Flip flashcards to view answers
-- ✅ Track score and correct answers
-- ➕ Add custom topics and questions
-- 🗑 Delete specific flashcards
-- 🌐 Fetch quizzes from Open Trivia API
-- 💡 Tips modal for user guidance
-- 🌙 Light/Dark mode toggle
-- ♻️ Reset progress (all or per topic)
-- 🧠 Topic-based question organization
-- 💾 Persistent data using localStorage
-- 📱 Fully responsive layout
+- Flip flashcards to view answers
+- Track score and correct answers
+- Add custom topics and questions
+- Delete specific flashcards
+- Fetch quizzes from Open Trivia API
+- Tips modal for user guidance
+- Light/Dark mode toggle
+- Reset progress (all or per topic)
+- Topic-based question organization
+- Persistent data using localStorage
+- Fully responsive layout
 
-## 🧑‍💻 Technologies Used
+## Technologies Used
 
 - **HTML5** — Semantic structure
 - **CSS3** — Styling and dark mode
@@ -30,7 +30,7 @@ An interactive and responsive Flashcard Quiz application built using **HTML**, *
 - **RemixIcon** — Icon library for visual cues
 - **Open Trivia DB API** — Fetching quiz questions (optional)
 
-## 📁 Project Structure
+## Project Structure
 
 flashcard-quiz/
 │
