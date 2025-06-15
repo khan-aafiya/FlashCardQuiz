@@ -1,631 +1,677 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f5f7fa;
-    color: #333;
-    height: 100vh;
-    position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  height: 100vh;
+  position: relative;
+}
+
+button {
+  padding: 10px 20px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #3730a3;
 }
 
 /* Navbar */
 .navbar {
-    background: #4f46e5;
-    color: white;
-    padding: 15px 20px;
-    font-size: 24px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    /* z-index: 1000; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
+  background: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
 }
 
 nav h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: bold;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .nav-left {
-    display: none;
-    margin-right: auto;
-    margin-bottom: 0.5rem;
-    position: relative;
+  display: none;
+  margin-right: auto;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+#ddTopicAddBtn {
+  background: transparent;
+  font-size: 1.3rem;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
 .nav-btn:hover,
 .nav-btn:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    outline: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: none;
 }
 
 .dropdown-menu {
-    position: absolute;
-    top: 42px;
-    left: 0;
-    background-color: white;
-    color: #333;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    margin: 0;
-    padding: 5px 0;
-    min-width: 180px;
-    display: none;
-    z-index: 1005;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  background-color: white;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  margin: 0;
+  padding: 5px 0;
+  min-width: 180px;
+  display: none;
+  z-index: 1005;
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
 .dropdown-menu li {
-    list-style: none;
-    padding: 8px 15px;
-    /* display: flex;
-    justify-content: space-between; */
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-size: 1rem;
+  list-style: none;
+  padding: 8px 15px;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
 }
 
 .dropdown-menu li button {
-    float: right;
-    background: transparent;
-    border: none;
-    color: inherit;
-    font-size: inherit;
-    cursor: pointer;
-    padding: 5px;
+  float: right;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 5px;
 }
 
 .dropdown-menu li:hover,
 .dropdown-menu li.selected {
-    background-color: #4f46e5;
-    color: white;
+  background-color: #4f46e5;
+  color: white;
 }
 
 .nav-buttons {
-    margin-left: auto;
-    margin-bottom: 0.5rem;
+  margin-left: auto;
+  margin-bottom: 0.5rem;
 }
 
 .nav-buttons button {
-    margin-left: 10px;
-    background: transparent;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+  margin-left: 10px;
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-right{
+  display: flex;
+  align-items: center;
+}
+
+#enableAPIBlockBtn {
+  background: transparent;
+  padding: 0;
+  margin: 0 0 0.3rem 0;
+  color: white;
+}
+
+select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
 }
 
 /* Layout */
 .main {
-    display: flex;
-    justify-content: space-between;
-    padding: 90px 30px 30px 250px;
-    height: calc(100vh - 90px);
+  display: flex;
+  justify-content: space-between;
+  padding: 90px 30px 30px 250px;
+  height: calc(100vh - 90px);
 }
 
 .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .flashcard {
-    width: 300px;
-    height: 270px;
-    perspective: 1000px;
-    margin-bottom: 20px;
-    position: relative;
+  width: 300px;
+  height: 270px;
+  perspective: 1000px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 #deleteCardBtn {
-    float: right;
-    background: transparent;
-    color: #f44336;
-    font-size: 1.5rem;
-    padding: 0;
+  float: right;
+  background: transparent;
+  color: #f44336;
+  font-size: 1.5rem;
+  padding: 0;
 }
 
 .card-face {
-    margin-top: 2rem;
-    width: 100%;
-    height: 90%;
-    position: absolute;
-    background: white;
-    border: 2px solid #ccc;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    backface-visibility: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.8s ease;
-    font-size: 18px;
+  margin-top: 2rem;
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.8s ease;
+  font-size: 18px;
 }
 
 .front {
-    z-index: 2;
+  z-index: 2;
 }
 
 .back {
-    background: #e0f7fa;
-    transform: rotateY(180deg);
+  background: #e0f7fa;
+  transform: rotateY(180deg);
 }
 
 .flashcard.flipped .front {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .flashcard.flipped .back {
-    transform: rotateY(360deg);
+  transform: rotateY(360deg);
 }
 
 .buttons {
-    display: flex;
-    gap: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    background: #4f46e5;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background: #3730a3;
+  display: flex;
+  gap: 20px;
 }
 
 #correctBtn {
-    display: none;
+  display: none;
 }
 
 /* Right Sidebar */
 .sidebar {
-    width: 250px;
-    background: #f0f0f0;
-    padding: 20px;
-    border-left: 2px solid #ccc;
-    border-radius: 12px;
+  width: 250px;
+  background: #f0f0f0;
+  padding: 20px;
+  border-left: 2px solid #ccc;
+  border-radius: 12px;
 }
 
 .sidebar h2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .sidebar p {
-    font-size: 16px;
-    margin: 12px 0;
+  font-size: 16px;
+  margin: 12px 0;
 }
 
 .sidebar button {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 /* Modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    margin: 10% auto;
-    margin-top: 6rem;
-    padding: 1rem 2rem;
-    border: 2px solid #888;
-    border-radius: 10px;
-    width: 60%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 10% auto;
+  margin-top: 6rem;
+  padding: 1rem 2rem;
+  border: 2px solid #888;
+  border-radius: 10px;
+  width: 60%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .modal-content h2 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .modal-content ul:last-child {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .close1,
 .close2,
 .close3,
-.close4 {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
+.close4,
+.close5 {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .modal-content input {
-    width: 85%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
+  width: 85%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 #addQAButton,
 #addTopicButton,
 .modal-content button {
-    width: 8rem;
-    margin-top: 1rem;
-    background: #4f46e5;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s ease;
+  width: 8rem;
+  margin-top: 1rem;
+  background: #4f46e5;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
 }
 
 .modal-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
 }
 
 #confirmActionBtn {
-    background: #f44336;
-    color: white;
+  background: #f44336;
+  color: white;
 }
 
 #cancelActionBtn {
-    background: #757575;
-    color: white;
+  background: #757575;
+  color: white;
 }
 
 /* Topic List */
 #topicList {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 #topicList li {
-    align-items: center;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    transition: background-color 0.3s ease;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#topicList li span {
+  display: inline-block;
+  width: 90px;
+  overflow-x: hidden;
 }
 
 #topicList li button {
-    padding: 5px;
-    float: right;
-    background: transparent;
+  padding: 5px;
+  float: right;
+  background: transparent;
 }
 
 #topicList li:hover {
-    background-color: #dbeafe;
-    color: #1e1e2f;
+  background-color: #dbeafe;
+  color: #1e1e2f;
 }
 
 #topicList li:hover button {
-    color: #1e1e2f;
+  color: #1e1e2f;
 }
 
 #topicList li.selected {
-    background-color: #4f46e5;
-    color: white;
-    font-weight: bold;
+  background-color: #4f46e5;
+  color: white;
+  font-weight: bold;
 }
 
 #topicList li.selected button {
-    color: white;
+  color: white;
 }
 
 #topicList li.selected button:hover {
-    background-color: #4338ca;
+  background-color: #4338ca;
 }
 
 #topicList li button:hover {
-    background-color: #c7dcf8;
+  background-color: #c7dcf8;
 }
 
 /* hover effect on Delete Topic Btn thats show title of btn */
 #removeCurrTopicBtn {
-    position: relative;
+  position: relative;
 }
 
 #addQAsBtn {
-    position: relative;
+  position: relative;
 }
 
 #addTopics {
-    position: relative;
+  position: relative;
 }
 
 #deleteCardBtn {
-    position: relative;
+  position: relative;
 }
 
 .hoverTitleOfBtn {
-    position: absolute;
-    bottom: 2rem;
-    left: -3.8rem;
-    width: 7rem;
-    border-radius: 0.5rem;
-    display: none;
-    background-color: #1f1f28;
-    font-weight: 100;
-    font-size: 0.9rem;
-    padding: 10px 5px;
-    color: white;
+  position: absolute;
+  bottom: 2rem;
+  left: -3.8rem;
+  width: 7rem;
+  border-radius: 0.5rem;
+  display: none;
+  background-color: #1f1f28;
+  font-weight: 100;
+  font-size: 0.9rem;
+  padding: 10px 5px;
+  color: white;
 }
 
 #removeCurrTopicBtn:hover .hoverTitleOfBtn {
-    display: block;
+  display: block;
 }
 
 #addQAsBtn:hover .hoverTitleOfBtn {
-    display: block;
-    left: -3rem;
+  display: block;
+  left: -3rem;
 }
 
 #addTopics:hover .hoverTitleOfBtn {
-    display: block;
-    left: -1;
-    bottom: 2rem;
+  display: block;
+  left: -1;
+  bottom: 2rem;
 }
 
 #deleteCardBtn:hover .hoverTitleOfBtn {
-    display: block;
+  display: block;
 }
 
 
 /* Left Sidebar */
 .left-sidebar {
-    position: fixed;
-    top: 74px;
-    left: 0;
-    width: 220px;
-    height: calc(100vh - 60px);
-    background: #f7f9fc;
-    border-right: 2px solid #ccc;
-    padding: 20px;
-    overflow-y: auto;
-    font-size: 18px;
-    color: #333;
+  position: fixed;
+  top: 65px;
+  left: 0;
+  width: 220px;
+  height: calc(100vh - 60px);
+  background: #f7f9fc;
+  border-right: 2px solid #ccc;
+  padding: 20px;
+  overflow-y: auto;
+  font-size: 18px;
+  color: #333;
 }
 
 .left-sidebar h2 {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .left-sidebar h2 button {
-    float: right;
-    background: transparent;
-    color: #333;
-    font-size: 1.5rem;
+  float: right;
+  background: transparent;
+  color: #333;
+  font-size: 1.5rem;
 }
 
 /* Dark Mode */
 body.dark {
-    background: #1e1e2f;
-    color: #f5f5f5;
+  background: #1e1e2f;
+  color: #f5f5f5;
 }
 
 body.dark .flashcard .card-face {
-    background: #2b2b3d;
-    color: #f5f5f5;
+  background: #2b2b3d;
+  color: #f5f5f5;
 }
 
 body.dark .back {
-    background: #39424e;
+  background: #39424e;
 }
 
 body.dark .sidebar {
-    background: #2c2c3d;
-    border-color: #444;
+  background: #2c2c3d;
+  border-color: #444;
 }
 
 body.dark .modal-content {
-    background: #2a2a3a;
-    color: white;
+  background: #2a2a3a;
+  color: white;
 }
 
 body.dark .nav-buttons button {
-    background: transparent;
-    color: white;
+  background: transparent;
+  color: white;
 }
 
 .dark .left-sidebar,
 .dropdown-menu {
-    background: #1f2937;
-    border-right: 2px solid #374151;
-    color: #d1d5db;
+  background: #1f2937;
+  border-right: 2px solid #374151;
+  color: #d1d5db;
 }
 
 .dark .left-sidebar h2 button {
-    color: #e5e7eb;
+  color: #e5e7eb;
 }
 
 .dark .left-sidebar li:hover {
-    background-color: #374151;
+  background-color: #374151;
 }
 
 .dark .left-sidebar li.selected {
-    background-color: #6366f1;
-    color: white;
+  background-color: #6366f1;
+  color: white;
 }
 
 .notification {
-    position: absolute;
-    bottom: 1rem;
-    left: 45%;
-    right: 50%;
-    background-color: #3730a3;
-    color: white;
-    width: max-content;
-    padding: 0.7rem;
-    font-size: 1rem;
-    text-align: center;
-    border-radius: 0.5rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 45%;
+  right: 50%;
+  background-color: #3730a3;
+  color: white;
+  width: max-content;
+  padding: 0.7rem;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 0.5rem;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-    .nav-left {
-        display: block;
-        margin-right: 0;
-    }
+  .nav-left {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
 
-    .left-sidebar {
-        display: none;
-    }
+  .left-sidebar {
+    display: none;
+  }
 
-    .main {
-        margin-top: 5rem;
-        margin-left: 0;
-        flex-direction: column;
-        padding: 15px 10px;
-        height: auto;
-    }
+  .main {
+    margin-top: 5rem;
+    margin-left: 0;
+    flex-direction: column;
+    padding: 15px 10px;
+    height: auto;
+  }
 
-    .sidebar {
-        width: 100%;
-        border-left: none;
-        border-top: 2px solid #ccc;
-        margin-top: 20px;
-        height: auto;
-    }
+  .sidebar {
+    width: 100%;
+    border-left: none;
+    border-top: 2px solid #ccc;
+    margin-top: 20px;
+    height: auto;
+  }
 }
 
 @media (max-width: 500px) {
-    .navbar {
-        padding: 5px 10px;
-        gap: 10px;
-    }
+  .navbar {
+    padding: 5px 10px;
+    gap: 10px;
+  }
 
-    nav h2 {
-        font-size: 0.9rem;
-    }
+  nav h2 {
+    font-size: 0.9rem;
+  }
 
-    .nav-btn {
-        font-weight: 600;
-        font-size: 0.8rem;
-        padding: 0;
-        margin: 0 0.4rem 0 0;
-    }
+  .nav-btn {
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 0 0.4rem 0 0;
+  }
 
-    .nav-buttons button {
-        font-size: 0.8rem;
-        margin-left: 0;
-        padding: 6px 9px;
-    }
+  .nav-buttons button {
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 2px;
+  }
 
-    .nav-buttons {
-        margin-left: 0;
-    }
+  #enableAPIBlockBtn {
+    font-size: 0.8rem;
+    margin: 0;
+  }
 
-    .left-sidebar {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
+  .nav-buttons {
+    margin-bottom: 0.5rem;
+  }
 
-    #topicList li {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
+  .left-sidebar {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
 
-    .sidebar {
-        font-size: 14px;
-    }
+  #topicList li {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 
-    #question {
-        font-size: 1.4rem;
-    }
+  .sidebar {
+    font-size: 14px;
+  }
 
-    #answer {
-        font-size: 1.1rem;
-    }
+  #question {
+    font-size: 1.4rem;
+  }
 
-    .buttons button {
-        padding: 8px 14px;
-        font-size: 14px;
-    }
+  #answer {
+    font-size: 1.1rem;
+  }
 
-    .modal-content {
-        width: 90%;
-        padding: 1rem;
-    }
+  .buttons button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
 
-    .modal-content h2 {
-        font-size: 1.2rem;
-    }
+  .modal-content {
+    width: 90%;
+    padding: 1rem;
+  }
 
-    .modal-content ul li {
-        font-size: 14px;
-    }
+  .modal-content h2 {
+    font-size: 1.2rem;
+  }
 
-    .modal-content p {
-        font-size: 14px;
-    }
+  .modal-content ul li {
+    font-size: 14px;
+  }
 
-    .modal-content input {
-        width: 100%;
-        font-size: 14px;
-        padding: 8px;
-    }
+  .modal-content p {
+    font-size: 14px;
+  }
 
-    .modal-buttons button {
-        font-size: 14px;
-    }
+  .modal-content input {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
 
-    #addQAButton {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
+  .modal-buttons button {
+    font-size: 14px;
+  }
 
-    .flashcard {
-        z-index: -1;
-    }
+  #addQAButton {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .flashcard {
+    z-index: -1;
+  }
+
+  .notification {
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+    width: 90%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
 }
