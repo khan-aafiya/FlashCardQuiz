@@ -52,7 +52,7 @@ To run the project locally:
    - Simply open index.html in your browser
    - Or use a Live Server extension in VS Code
 
-##How to Use
+## How to Use
 
 - Topics Button: View available quiz topics
 - + Button: Add a new topic or custom question-answer pair
